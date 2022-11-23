@@ -1,3 +1,11 @@
+// DOM Elements
+const modalbg = document.querySelector(".bground");
+const modalBtn = document.querySelectorAll(".modal-btn");
+const formData = document.querySelectorAll(".formData");
+
+const modalCloseBtn = document.getElementById("modal-close-btn");
+const modalForm = document.getElementById("modal-form");
+
 // Functions
 function editNav() {
   var x = document.getElementById("myTopnav");
@@ -15,12 +23,6 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none";
 }
-
-// DOM Elements
-const modalbg = document.querySelector(".bground");
-const modalBtn = document.querySelectorAll(".modal-btn");
-const formData = document.querySelectorAll(".formData");
-const modalCloseBtn = document.getElementById("modal-close-btn");
 
 // Event Listeners
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
