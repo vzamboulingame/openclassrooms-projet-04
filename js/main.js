@@ -5,6 +5,7 @@ const formData = document.querySelectorAll(".formData");
 
 const modalCloseBtn = document.getElementById("modal-close-btn");
 const modalForm = document.getElementById("modal-form");
+const barIcon = document.getElementById("bar-icon");
 
 // Functions
 function editNav() {
@@ -96,3 +97,5 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 modalCloseBtn.addEventListener("click", closeModal);
 
 modalForm.addEventListener("submit", validateModalForm);
+
+barIcon.addEventListener("click", editNav);
