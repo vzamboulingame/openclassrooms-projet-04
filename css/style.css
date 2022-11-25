@@ -2,6 +2,7 @@
   --font-default: "DM Sans", Arial, Helvetica, sans-serif;
   --font-slab: var(--font-default);
   --modal-duration: 0.8s;
+  --transition-time: 0.3s;
 }
 * {
   box-sizing: border-box;
@@ -55,19 +56,21 @@ img {
   text-decoration: none;
   font-size: 20px;
   font-family: Roboto, sans-serif;
+  border-radius: 15px;
+  transition: var(--transition-time);
 }
 
-.topnav a:hover {
+.topnav a:hover,
+.topnav a:active {
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+/* .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
-}
-
-.topnav a.active {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
-}
+} */
 
 .topnav .icon {
   display: none;
@@ -132,6 +135,7 @@ main {
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
   cursor: pointer;
+  transition: var(--transition-time);
 }
 
 .modal-btn:hover {
@@ -154,6 +158,7 @@ main {
   border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
+  transition: var(--transition-time);
 }
 
 .button:hover {
@@ -385,6 +390,7 @@ input[data-error]::after {
   cursor: pointer;
   border-radius: 8px;
   height: 48px;
+  transition: var(--transition-time);
 }
 
 /* Style items (options): */
