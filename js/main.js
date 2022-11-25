@@ -23,54 +23,79 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-function testRegEx(inputId, regexPattern) {
-  const inputValue = document.getElementById(inputId).value;
-  const regex = new RegExp(`${regexPattern}`, "gi");
-  return regex.test(inputValue);
+function customizeInputErrorMessage() {
+  const inputs = [
+    {
+      id: "first",
+      errormsg: "Veuillez entrer 2 caractères ou plus pour le champ du prénom.",
+    },
+    {
+      id: "last",
+      errormsg: "Veuillez entrer 2 caractères ou plus pour le champ du nom.",
+    },
+    {
+      id: "email",
+      errormsg: "Veuillez saisir une adresse email valide.",
+    },
+    {
+      id: "birthdate",
+      errormsg: "Veuillez indiquer une date de naissance valide.",
+    },
+    {
+      id: "quantity",
+      errormsg: "Veuillez indiquer une valeur entre 0 et 99.",
+    },
+  ];
+
+  inputs.forEach((input) => {
+    const inputEl = document.getElementById(`${input.id}`);
+
+    inputEl.addEventListener("input", () => {
+      inputEl.setCustomValidity("");
+      inputEl.checkValidity();
+    });
+
+    inputEl.addEventListener("invalid", () => {
+      if (inputEl.value === "") {
+        inputEl.setCustomValidity("La saisie de ce champ est obligatoire.");
+      } else {
+        inputEl.setCustomValidity(`${input.errormsg}`);
+      }
+    });
+  });
 }
 
 function validateModalForm(event) {
-  const firstNameIsValid = testRegEx("first", "^.{2,}$");
-  const lastNameIsValid = testRegEx("last", "^.{2,}$");
-  const emailIsValid = testRegEx(
-    "email",
-    "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
-  );
-  const quantityIsValid = testRegEx("quantity", "^([0-9]|([1-9][0-9]))$");
+  const firstNameIsValid = document.getElementById("first").checkValidity();
+  const lastNameIsValid = document.getElementById("last").checkValidity();
+  const emailIsValid = document.getElementById("email").checkValidity();
+  const birthDateIsValid = document.getElementById("birthdate").checkValidity();
+  const quantityIsValid = document.getElementById("quantity").checkValidity();
+  const locationIsValid = document
+    .querySelectorAll('input[name="location"]')
+    .checkValidity();
+  const checkbox1IsValid = document.getElementById("checkbox1").checkValidity();
 
-  const locationIsValid = () => {
-    const locations = document.getElementsByName("location");
-    for (var i = 0; i < locations.length; i++) {
-      if (locations[i].checked) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  const checkbox1IsValid = () => {
-    const checkbox1 = document.getElementById("checkbox1");
-    return checkbox1.checked;
-  };
-
+  // Checks if all inputs are valid on form submit
   if (
     firstNameIsValid &&
     lastNameIsValid &&
     emailIsValid &&
+    birthDateIsValid &&
     quantityIsValid &&
-    locationIsValid() &&
-    checkbox1IsValid()
+    locationIsValid &&
+    checkbox1IsValid
   ) {
-    console.log("Form inputs are valid");
-    return true;
+    window.alert("Formulaire validé.");
   } else {
     event.preventDefault();
-    console.log("Form inputs are not valid");
-    return false;
   }
 }
 
-// Event Listeners
+// Main Program
+
+customizeInputErrorMessage();
+
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 modalCloseBtn.addEventListener("click", closeModal);
