@@ -23,53 +23,34 @@ function closeModal() {
   modalbg.style.display = "none";
 }
 
-function testRegEx(inputId, inputName, regexPattern) {
+function testRegEx(inputId, regexPattern) {
   const inputValue = document.getElementById(inputId).value;
   const regex = new RegExp(`${regexPattern}`, "gi");
-  if (regex.test(inputValue)) {
-    console.log(`${inputName} value "${inputValue}" is valid`);
-    return true;
-  } else {
-    console.log(`${inputName} value "${inputValue}" is not valid`);
-    return false;
-  }
+  return regex.test(inputValue);
 }
 
 function validateModalForm(event) {
-  const firstNameIsValid = testRegEx("first", "firstName", "^.{2,}$");
-  const lastNameIsValid = testRegEx("last", "lastName", "^.{2,}$");
+  const firstNameIsValid = testRegEx("first", "^.{2,}$");
+  const lastNameIsValid = testRegEx("last", "^.{2,}$");
   const emailIsValid = testRegEx(
-    "email",
     "email",
     "[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?"
   );
-  const quantityIsValid = testRegEx(
-    "quantity",
-    "quantity",
-    "^([0-9]|([1-9][0-9]))$"
-  );
+  const quantityIsValid = testRegEx("quantity", "^([0-9]|([1-9][0-9]))$");
 
   const locationIsValid = () => {
     const locations = document.getElementsByName("location");
     for (var i = 0; i < locations.length; i++) {
       if (locations[i].checked) {
-        console.log("A location has been selected");
         return true;
       }
     }
-    console.log("No location has been selected");
     return false;
   };
 
   const checkbox1IsValid = () => {
     const checkbox1 = document.getElementById("checkbox1");
-    if (checkbox1.checked) {
-      console.log("Checkbox1 has been selected");
-      return true;
-    } else {
-      console.log("Checkbox1 has not been selected");
-      return false;
-    }
+    return checkbox1.checked;
   };
 
   if (
