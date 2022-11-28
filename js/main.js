@@ -1,11 +1,15 @@
-// DOM Elements
+/*****************************************
+ * VARIABLES
+ *****************************************/
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const modalCloseBtn = document.getElementById("modal-close-btn");
 const modalForm = document.getElementById("modal-form");
 const barIcon = document.getElementById("bar-icon");
 
-// Functions
+/*****************************************
+ * FUNCTIONS
+ *****************************************/
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -92,7 +96,9 @@ function validateModalForm(event) {
   }
 }
 
-// Main Program
+/*****************************************
+ * MAIN PROGRAM
+ *****************************************/
 
 customizeInputErrorMessage();
 
