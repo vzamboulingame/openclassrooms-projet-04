@@ -12,6 +12,7 @@ const barIcon = document.getElementById("bar-icon");
  *****************************************/
 function editNav() {
   var x = document.getElementById("myTopnav");
+
   if (x.className === "topnav") {
     x.className += " responsive";
   } else {
@@ -80,7 +81,6 @@ function validateModalForm(event) {
     .checkValidity();
   const checkbox1IsValid = document.getElementById("checkbox1").checkValidity();
 
-  // Checks if all inputs are valid on form submit
   if (
     firstNameIsValid &&
     lastNameIsValid &&
@@ -90,7 +90,7 @@ function validateModalForm(event) {
     locationIsValid &&
     checkbox1IsValid
   ) {
-    window.alert("Formulaire validé.");
+    console.log("Formulaire validé");
   } else {
     event.preventDefault();
   }
@@ -99,7 +99,6 @@ function validateModalForm(event) {
 /*****************************************
  * MAIN PROGRAM
  *****************************************/
-
 customizeInputErrorMessage();
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
