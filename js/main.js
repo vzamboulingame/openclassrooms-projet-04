@@ -51,23 +51,13 @@ function customizeInputErrorMessage() {
       errormsg: "Veuillez indiquer une valeur entre 0 et 99.",
     },
     {
-      id: "location",
-      errormsg: "Veuillez choisir une localisation de tournoi.",
-    },
-    {
       id: "conditions",
       errormsg: "Veuillez accepter les conditions afin de poursuivre.",
     },
   ];
 
   inputs.forEach((input) => {
-    let inputEl;
-
-    if (input.id === "location") {
-      inputEl = document.querySelector('input[type="radio"]');
-    } else {
-      inputEl = document.getElementById(`${input.id}`);
-    }
+    const inputEl = document.getElementById(`${input.id}`);
 
     inputEl.addEventListener("input", () => {
       inputEl.setCustomValidity("");
@@ -85,10 +75,18 @@ function customizeInputErrorMessage() {
 }
 
 function validateModalForm(event) {
+  event.preventDefault();
+
+  const successMsgEl = document.getElementById("success-msg");
+
   if (modalForm.checkValidity()) {
-    console.log("Formulaire validé");
-  } else {
-    event.preventDefault();
+    modalForm.reset();
+    closeModal();
+    successMsgEl.style.display = "flex";
+
+    setTimeout(() => {
+      successMsgEl.style.display = "none";
+    }, 1600);
   }
 }
 
@@ -102,6 +100,6 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 modalCloseBtn.addEventListener("click", closeModal);
 
-modalForm.addEventListener("submit", validateModalForm);
-
 barIcon.addEventListener("click", editNav);
+
+modalForm.addEventListener("submit", validateModalForm);

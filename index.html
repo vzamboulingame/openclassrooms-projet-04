@@ -28,6 +28,7 @@
       </a>
     </div>
   </div>
+
   <main>
     <div class="hero-section">
       <div class="hero-content">
@@ -50,7 +51,6 @@
         je m'inscris
       </button>
     </div>
-
     <div class="bground">
       <div class="content">
         <span class="close" id="modal-close-btn"></span>
@@ -82,28 +82,27 @@
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
                 New York</label>
-              <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco" required>
+              <input class="checkbox-input" type="radio" id="location2" name="location" value="San Francisco">
               <label class="checkbox-label" for="location2">
                 <span class="checkbox-icon"></span>
                 San Francisco</label>
-              <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle" required>
+              <input class="checkbox-input" type="radio" id="location3" name="location" value="Seattle">
               <label class="checkbox-label" for="location3">
                 <span class="checkbox-icon"></span>
                 Seattle</label>
-              <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago" required>
+              <input class="checkbox-input" type="radio" id="location4" name="location" value="Chicago">
               <label class="checkbox-label" for="location4">
                 <span class="checkbox-icon"></span>
                 Chicago</label>
-              <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston" required>
+              <input class="checkbox-input" type="radio" id="location5" name="location" value="Boston">
               <label class="checkbox-label" for="location5">
                 <span class="checkbox-icon"></span>
                 Boston</label>
-              <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland" required>
+              <input class="checkbox-input" type="radio" id="location6" name="location" value="Portland">
               <label class="checkbox-label" for="location6">
                 <span class="checkbox-icon"></span>
                 Portland</label>
             </div>
-
             <div class="formData">
               <input class="checkbox-input" type="checkbox" id="conditions" name="conditions" checked required>
               <label class="checkbox2-label" for="conditions">
@@ -124,11 +123,17 @@
       </div>
     </div>
   </main>
+
   <footer>
     <p class="copyrights">
       Copyright 2014 - 2022, GameOn Inc.
     </p>
   </footer>
+
+  <div class="success-msg" id="success-msg">
+    <p><span>Merci !</span><br>Votre réservation a été reçue.</p>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 
