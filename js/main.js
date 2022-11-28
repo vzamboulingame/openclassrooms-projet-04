@@ -50,10 +50,24 @@ function customizeInputErrorMessage() {
       id: "quantity",
       errormsg: "Veuillez indiquer une valeur entre 0 et 99.",
     },
+    {
+      id: "location",
+      errormsg: "Veuillez choisir une localisation de tournoi.",
+    },
+    {
+      id: "conditions",
+      errormsg: "Veuillez accepter les conditions afin de poursuivre.",
+    },
   ];
 
   inputs.forEach((input) => {
-    const inputEl = document.getElementById(`${input.id}`);
+    let inputEl;
+
+    if (input.id === "location") {
+      inputEl = document.querySelector('input[type="radio"]');
+    } else {
+      inputEl = document.getElementById(`${input.id}`);
+    }
 
     inputEl.addEventListener("input", () => {
       inputEl.setCustomValidity("");
@@ -71,25 +85,7 @@ function customizeInputErrorMessage() {
 }
 
 function validateModalForm(event) {
-  const firstNameIsValid = document.getElementById("first").checkValidity();
-  const lastNameIsValid = document.getElementById("last").checkValidity();
-  const emailIsValid = document.getElementById("email").checkValidity();
-  const birthDateIsValid = document.getElementById("birthdate").checkValidity();
-  const quantityIsValid = document.getElementById("quantity").checkValidity();
-  const locationIsValid = document
-    .querySelectorAll('input[name="location"]')
-    .checkValidity();
-  const checkbox1IsValid = document.getElementById("checkbox1").checkValidity();
-
-  if (
-    firstNameIsValid &&
-    lastNameIsValid &&
-    emailIsValid &&
-    birthDateIsValid &&
-    quantityIsValid &&
-    locationIsValid &&
-    checkbox1IsValid
-  ) {
+  if (modalForm.checkValidity()) {
     console.log("Formulaire validé");
   } else {
     event.preventDefault();
@@ -99,6 +95,7 @@ function validateModalForm(event) {
 /*****************************************
  * MAIN PROGRAM
  *****************************************/
+
 customizeInputErrorMessage();
 
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
