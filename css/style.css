@@ -491,15 +491,18 @@ footer {
 * MEDIA QUERIES
 *****************************************/
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1024px) {
   .hero-section {
+    min-height: auto;
+    min-width: auto;
     display: block;
     box-shadow: unset;
   }
   .hero-content {
     background: #fff;
     color: #000;
-    padding: 20px;
+    padding: 20px 0;
+    min-width: auto;
   }
   .hero-content::after {
     content: unset;
@@ -508,12 +511,16 @@ footer {
     display: none;
   }
   .hero-headline {
-    font-size: 4.5rem;
+    font-size: 4rem;
     white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
   }
   .hero-text {
-    width: unset;
+    width: 100%;
     font-size: 1.5rem;
+    word-wrap: break-word;
+    word-break: break-word;
   }
   .hero-img img {
     border-radius: 10px;
@@ -528,9 +535,6 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
-}
-
-@media screen and (max-width: 768px) {
   .topnav a {
     display: none;
   }
@@ -538,9 +542,6 @@ footer {
     float: right;
     display: block;
   }
-}
-
-@media screen and (max-width: 768px) {
   .topnav.responsive {
     position: relative;
   }
@@ -553,16 +554,5 @@ footer {
     float: none;
     display: block;
     text-align: left;
-  }
-}
-
-@media screen and (max-width: 540px) {
-  .topnav a {
-    display: none;
-  }
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
   }
 }
