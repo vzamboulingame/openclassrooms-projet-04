@@ -18,7 +18,7 @@ Vous avez récemment été embauché comme développeur Front-End junior dans un
 
 Jason, qui a démissionné récemment, avait commencé à travailler sur la structure HTML et le style CSS, sur la base de la maquette suivante :
 
-<img src="./img/maquette.png" width=75% height=75%>
+![Maquette](./img/maquette.png)
 
 Il avait terminé la mise en page et le contenu de la page d'accueil ainsi que de la modale du formulaire. Il a également ajouté le JavaScript pour le lancement de la maquette.
 
