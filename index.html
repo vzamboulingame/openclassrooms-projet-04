@@ -13,10 +13,10 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
-<body>
+<body onclick>
   <div class="topnav" id="myTopnav">
     <div class="header-logo">
-      <img src="img/Logo.png" alt="logo">
+      <img src="img/Logo.png" alt="Logo GameOn rouge sur fond blanc.">
     </div>
     <div class="main-navbar">
       <a href="#" class="active"><span>Accueil</span></a>
@@ -46,7 +46,7 @@
         </button>
       </div>
       <div class="hero-img">
-        <img src="img/bg_img.jpg" alt="img">
+        <img src="img/bg_img.jpg" alt="Photo d'une fille qui joue aux jeux-vidéo.">
       </div>
       <button class="btn-signup modal-btn">
         je m'inscris
@@ -59,11 +59,13 @@
           <form id="modal-form" name="reserve" action="index.html" method="get">
             <div class="formData">
               <label for="first">Prénom</label><br>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" required><br>
+              <input class="text-control" type="text" id="first" name="first" minlength="2" pattern="(?!^ +$)^.+$"
+                required><br>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
-              <input class="text-control" type="text" id="last" name="last" minlength="2" required><br>
+              <input class="text-control" type="text" id="last" name="last" minlength="2" pattern="(?!^ +$)^.+$"
+                required><br>
             </div>
             <div class="formData">
               <label for="email">E-mail</label><br>
