@@ -82,10 +82,10 @@ function validateModalForm(event) {
   if (modalForm.checkValidity()) {
     modalForm.reset();
     closeModal();
-    successMsgEl.style.opacity = "1";
+    successMsgEl.style.display = "flex";
 
     setTimeout(() => {
-      successMsgEl.style.opacity = "0";
+      successMsgEl.style.display = "none";
     }, 1600);
   }
 }
