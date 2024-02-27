@@ -8,10 +8,6 @@
 ![vscode][vscode-badge]
 ![w3c][w3c-badge]
 
-## Demo
-
-https://gameon-vza.netlify.app
-
 ## Description
 
 Vous avez récemment été embauché comme développeur Front-End junior dans une PME, GameOn, spécialisée dans les conférences et les concours de jeux.
